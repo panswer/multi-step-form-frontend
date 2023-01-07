@@ -1,0 +1,5 @@
+.form-text-description {
+  display: block;
+  color: var(--color-neutral-cool-gray);
+  margin-bottom: 1.4rem;
+}

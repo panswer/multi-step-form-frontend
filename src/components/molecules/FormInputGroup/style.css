@@ -1,0 +1,8 @@
+.content-form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-form-input:not(:last-child) {
+  margin-bottom: .9rem;
+}

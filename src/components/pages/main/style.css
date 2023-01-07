@@ -1,0 +1,39 @@
+.content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.content > .bg-content {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}
+
+.content > .bg-content > .bg-img {
+  width: 100vw;
+  height: 26vh;
+  background-image: url("../../../imgs/bg-sidebar-mobile.svg");
+  background-position: center;
+  background-size: cover;
+}
+
+.content > .bg-content > .bg-color {
+  width: 100vw;
+  height: 64vh;
+  background-color: var(--color-neutral-magnolia);
+}
+
+.content > .form-content {
+  z-index: 200;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content > .form-content > .white-space {
+  flex: auto;
+}

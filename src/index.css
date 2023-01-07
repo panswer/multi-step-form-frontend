@@ -1,13 +1,34 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "Ubuntu";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  /* 
+      Colors
+  */
+  /* primary */
+  --color-primary-marine-blue: hsl(213, 96%, 18%);
+  --color-primary-purplish-blue: hsl(243, 100%, 62%);
+  --color-primary-pastel-blue: hsl(228, 100%, 84%);
+  --color-primary-light-blue: hsl(206, 94%, 87%);
+  --color-primary-strawberry: hsl(354, 84%, 57%);
+  /* neutral */
+  --color-neutral-cool-gray: hsl(231, 11%, 63%);
+  --color-neutral-light-gray: hsl(229, 24%, 87%);
+  --color-neutral-magnolia: hsl(217, 100%, 97%);
+  --color-neutral-alabaster: hsl(231, 100%, 99%);
+  --color-neutral-white: hsl(0, 0%, 100%);
+  /* typography */
+  --font-size-generic: 16px;
+  /* wieghts */
+  --font-weight-1: 400;
+  --font-weight-2: 500;
+  --font-weight-3: 700;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./fonts/Ubuntu-Regular.ttf");
 }

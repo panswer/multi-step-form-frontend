@@ -1,0 +1,9 @@
+.btn-primary {
+  text-transform: capitalize;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-primary-marine-blue);
+  background-color: var(--color-primary-marine-blue);
+  color: var(--color-neutral-white);
+  font-weight: var(--font-weight-3);
+}
