@@ -5,3 +5,16 @@
   margin: 1rem;
   border-radius: 10px;
 }
+
+@media (min-width: 1024px) {
+  .content-form_step {
+    padding: 32px;
+    min-height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  .form-select-group-simple {
+    display: flex;
+    justify-content: space-between;
+  }
+}

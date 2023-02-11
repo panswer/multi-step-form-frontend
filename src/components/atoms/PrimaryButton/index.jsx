@@ -33,13 +33,16 @@ const PrimaryButton = (props) => {
   };
 
   return (
-    <button
-      className="btn-primary"
-      onClick={props.onClick || handleSubmit}
-      style={props.style}
-    >
-      {props.textButton}
-    </button>
+    <div className="primary-button-component">
+      <div className="bg-blue"></div>
+      <button
+        className="btn-primary"
+        onClick={props.onClick || handleSubmit}
+        style={props.style}
+      >
+        {props.textButton}
+      </button>
+    </div>
   );
 };
 

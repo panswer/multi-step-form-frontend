@@ -29,6 +29,7 @@ import {
 const Main = () => {
   const [state, setState] = useState(defaultValue);
   const [contextState, setContextState] = useState(defaultValue);
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
   /**
    * Verify if the step is the last item
@@ -59,7 +60,7 @@ const Main = () => {
 
       return result;
     });
-    console.log(result);
+
     return result.length === 0;
   };
 
@@ -96,6 +97,12 @@ const Main = () => {
     setContextState(newContextState);
   }, [state, setState]);
 
+  useMemo(() => {
+    window.addEventListener("resize", (e) => {
+      setInnerWidth(window.innerWidth);
+    });
+  }, []);
+
   return (
     <>
       <formContext.Provider value={contextState}>
@@ -105,7 +112,7 @@ const Main = () => {
             <div
               className="bg-color"
               style={
-                state.invoice.isSaved
+                state.invoice.isSaved && innerWidth < 1024
                   ? {
                       minHeight: "74vh",
                     }
@@ -114,9 +121,9 @@ const Main = () => {
             ></div>
           </div>
           <div className="form-content">
-            <PageNavbar />
-            <FormStep />
-            <div className="white-space"></div>
+            <PageNavbar showPageInfo={innerWidth >= 1024} />
+            <FormStep innerWidth={innerWidth} />
+            {innerWidth < 1024 ? <div className="white-space"></div> : <></>}
             {state.invoice.isSaved ? (
               <></>
             ) : (

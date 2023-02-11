@@ -18,7 +18,7 @@ import PrimaryButton from "../../atoms/PrimaryButton";
 /**
  * Button bottom
  *
- * @param {object} props - properties
+ * @param {ButtonBottomProps} props - properties
  *
  * @returns {JSX.Element}
  */

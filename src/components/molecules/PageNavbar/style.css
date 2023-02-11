@@ -4,3 +4,28 @@
   margin-bottom: 1rem;
   margin-top: 2rem;
 }
+
+@media (min-width: 1024px) {
+  .step-navbar {
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+    grid-area: navbar;
+    background-image: url("../../../imgs/bg-sidebar-desktop.svg");
+    background-position: center;
+    background-size: cover;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+
+  .step-navbar .page {
+    display: grid;
+    grid-template-areas: "pageNum pageStr" "pageNum pageTitle";
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .step-navbar .page:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}

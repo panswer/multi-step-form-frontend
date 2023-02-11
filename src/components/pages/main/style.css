@@ -42,3 +42,37 @@
 .content > .form-content > .white-space {
   flex: auto;
 }
+
+@media (min-width: 1024px) {
+  .content {
+    display: grid;
+  }
+
+  .content > .bg-content > .bg-img {
+    display: none;
+  }
+
+  .content > .bg-content > .bg-color {
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+
+  .content > .form-content {
+    display: grid;
+    grid-template-areas: "navbar form" "navbar buttons";
+    justify-self: center;
+    align-self: center;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 4rem;
+
+    max-width: 650px;
+    max-height: 330px;
+    min-height: 500px;
+
+    background-color: var(--color-neutral-white);
+
+    padding: 1rem;
+
+    border-radius: 8px;
+  }
+}

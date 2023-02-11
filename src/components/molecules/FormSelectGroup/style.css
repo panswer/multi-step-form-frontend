@@ -17,6 +17,10 @@
   background-color: var(--color-neutral-magnolia);
 }
 
+.select-radio + label > .content-form_select_group:hover {
+  border-color: var(--color-primary-purplish-blue);
+}
+
 .content-form_select_group > .circle {
   grid-area: icon;
   justify-self: center;
@@ -33,4 +37,21 @@
 
 .content-form_select_group > .plus {
   grid-area: plus;
+}
+
+@media (min-width: 1024px) {
+  .content-form_select_group {
+    grid-template-areas: "icon" "title" "subTitle" "plus";
+    grid-template-columns: auto;
+    grid-template-rows: 5rem;
+    min-width: 7rem;
+    min-height: 7rem;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .content-form_select_group > .circle {
+    justify-self: start;
+    align-self: start;
+  }
 }

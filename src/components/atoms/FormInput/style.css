@@ -1,5 +1,5 @@
 .input-value {
-  padding: .7rem 0.6rem;
+  padding: 0.7rem 0.6rem;
   border-radius: 5px;
   border: 1px solid var(--color-neutral-light-gray);
 }
@@ -7,4 +7,12 @@
 .input-value::placeholder {
   font-weight: var(--font-weight-3);
   color: var(--color-neutral-cool-gray);
+}
+
+.input-value[type="text"]:focus,
+.input-value[type="text"]:focus-visible,
+.input-value[type="email"]:focus,
+.input-value[type="email"]:focus-visible {
+  border-color: var(--color-primary-purplish-blue);
+  outline: 0;
 }

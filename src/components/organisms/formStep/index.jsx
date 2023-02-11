@@ -29,11 +29,18 @@ import iconThankYou from "../../../imgs/icon-thank-you.svg";
  */
 
 /**
+ * @typedef {object} FormStepProps
+ * @property {number} [innerWidth]
+ */
+
+/**
  * Form Step component
+ *
+ * @param {FormStepProps} props
  *
  * @returns {JSX.Element}
  */
-const FormStep = () => {
+const FormStep = (props) => {
   const {
     step,
     pages,
@@ -53,7 +60,15 @@ const FormStep = () => {
   if (pages[step]) {
     if (step + 1 === pages.length && invoice.isSaved) {
       return (
-        <div className="content-form_step">
+        <div
+          className="content-form_step"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignContent: "center",
+            height: "100%",
+          }}
+        >
           <FormResult
             icon={{ alternativeText: "Thanks!", source: iconThankYou }}
             description={`Thanks for confirming your subscription!
@@ -110,26 +125,29 @@ const FormStep = () => {
 
                 return (
                   <>
-                    {optionsRender.map((option, i) => (
-                      <FormSelectGroup
-                        description={option.description}
-                        icon={{
-                          alt: option.title,
-                          url: option.icon,
-                        }}
-                        title={option.title}
-                        key={`${option.group}-${option.title}`}
-                        selectStyle={{
-                          marginBottom:
-                            i !== options.length - 1 ? ".7rem" : "1.5rem",
-                        }}
-                        selectGroupName={option.group}
-                        value={`${option.group}-${option.title}`}
-                        onChange={handleChange(location)}
-                        isSelected={value === option.title}
-                        plus={option.subTitle}
-                      />
-                    ))}
+                    <div className="form-select-group-simple">
+                      {optionsRender.map((option, i) => (
+                        <FormSelectGroup
+                          description={option.description}
+                          icon={{
+                            alt: option.title,
+                            url: option.icon,
+                          }}
+                          title={option.title}
+                          key={`${option.group}-${option.title}`}
+                          selectStyle={{
+                            marginBottom:
+                              i !== options.length - 1 ? ".7rem" : "1.5rem",
+                          }}
+                          selectGroupName={option.group}
+                          value={`${option.group}-${option.title}`}
+                          onChange={handleChange(location)}
+                          isSelected={value === option.title}
+                          plus={option.subTitle}
+                          innerWidth={props.innerWidth}
+                        />
+                      ))}
+                    </div>
                   </>
                 );
               } else if (formSingleSwitchGroupEnum.includes(type)) {

@@ -4,6 +4,7 @@ import "./style.css";
  * @typedef {object} PropertiesSchema
  * @property {number} num - number
  * @property {boolean} selected - is actived
+ * @property {React.CSSProperties} style
  */
 
 /**
@@ -13,10 +14,12 @@ import "./style.css";
  *
  * @returns {JSX.Element}
  */
-const PageNum = ({ num, selected }) => {
+const PageNum = ({ num, selected, style }) => {
   return (
     <>
-      <button className={`page-root ${selected ? "active" : ""}`}>{num}</button>
+      <button className={`page-root ${selected ? "active" : ""}`} style={style}>
+        {num}
+      </button>
     </>
   );
 };

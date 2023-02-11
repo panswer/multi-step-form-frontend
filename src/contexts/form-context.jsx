@@ -76,6 +76,7 @@ import iconPro from "../imgs/icon-pro.svg";
  * @typedef {object} FormContextItemType
  * @property {string} title
  * @property {string} description
+ * @property {string} info
  * @property {Array<FormItemType>} inputs
  */
 
@@ -104,6 +105,7 @@ export const defaultValue = {
       title: "Personal info",
       description:
         "Please provider your name, email address, and phone number.",
+      info: "your info",
       inputs: [
         {
           label: "name",
@@ -131,6 +133,7 @@ export const defaultValue = {
     {
       title: "Select your plan",
       description: "You have the option of monthly or yearly billing.",
+      info: "select plan",
       inputs: [
         {
           type: "radio",
@@ -195,6 +198,7 @@ export const defaultValue = {
     {
       title: "Pick add-ons",
       description: "Add-ons help enhance your gaming experience",
+      info: "add-ons",
       inputs: [
         {
           type: "multi-switch",
@@ -244,6 +248,7 @@ export const defaultValue = {
     {
       description: "Double-check everything looks OK before confirming",
       title: "Finishing up",
+      info: "summary",
       inputs: [
         {
           type: "invoice",

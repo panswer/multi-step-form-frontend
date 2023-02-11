@@ -4,3 +4,7 @@
   color: var(--color-neutral-cool-gray);
   text-transform: capitalize;
 }
+
+.secundary-button:hover {
+  color: var(--color-primary-marine-blue);
+}

@@ -130,7 +130,12 @@ const FormSwitchGroup = (props) => {
                     option.title.split(" ").join("_")
                   )}
                 />
-                <div className="single-option-component" key={key}>
+
+                <label
+                  className="single-option-component"
+                  key={key}
+                  htmlFor={key}
+                >
                   <div className="option-checkbox">
                     <img src={iconCheck} alt={`icon-${key}`} />
                   </div>
@@ -162,7 +167,7 @@ const FormSwitchGroup = (props) => {
                       {option.price}
                     </SpanPrice>
                   </div>
-                </div>
+                </label>
               </>
             );
           })}

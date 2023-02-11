@@ -25,6 +25,7 @@ export const selectGroupEnum = ["radio"];
  * @property {string} [plus] - plus in plan
  * @property {(e:React.ChangeEvent<HTMLInputElement>) => void} [onChange] - notify if the value is selected
  * @property {boolean} isSelected - is option selected
+ * @property {number} [innerWidth] - width of screen
  */
 
 /**
@@ -69,7 +70,16 @@ const FormSelectGroup = (props) => {
             <SubTitle text={props.title} />
           </div>
           <div className="price">
-            <FormDescribe description={props.description} />
+            <FormDescribe
+              description={props.description}
+              style={
+                props.innerWidth < 1024
+                  ? {}
+                  : {
+                      marginBottom: "0px",
+                    }
+              }
+            />
           </div>
           {props.plus ? (
             <div className="plus">
