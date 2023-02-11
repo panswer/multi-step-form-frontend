@@ -111,6 +111,7 @@ const FormStep = (props) => {
                     onChange={handleChange(location)}
                     textExample={textExample}
                     inputType={type}
+                    messageError="This field is required"
                   />
                 );
               } else if (selectGroupEnum.includes(type)) {

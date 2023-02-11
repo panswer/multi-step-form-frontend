@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useEffect } from "react";
+import { useMemo } from "react";
+import { useState } from "react";
 
 import "./style.css";
 
@@ -18,6 +21,7 @@ export const inputTypes = ["email", "text"];
  * @property {(e:React.ChangeEvent<HTMLInputElement>)=>void} [onChange] - on change
  * @property {string} inputId - input's id
  * @property {string|number} [value] - input's value
+ * @property {string} [messageError] - message error
  */
 
 /**
@@ -32,6 +36,22 @@ export const inputTypes = ["email", "text"];
  * @returns {JSX.Element}
  */
 const FormInput = (props) => {
+  const [showMessage, setShowMessage] = useState(false);
+  /**
+   * @type {React.MutableRefObject<HTMLInputElement | null>}
+   */
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      const input = inputRef.current;
+
+      input.addEventListener("focusout", (e) => {
+        setShowMessage(!e.target.value);
+      });
+    }
+  }, [inputRef]);
+
   /**
    * handle change
    *
@@ -46,14 +66,22 @@ const FormInput = (props) => {
   };
 
   return inputTypes.includes(props.inputType) ? (
-    <input
-      className="input-value"
-      id={props.inputId}
-      type={props.inputType || "text"}
-      placeholder={props.placeholder || ""}
-      onChange={props.onChange || handleChange}
-      value={props.value || ""}
-    />
+    <div className="form-input-component">
+      {props.messageError && showMessage ? (
+        <span className="message-error">{props.messageError}</span>
+      ) : (
+        <></>
+      )}
+      <input
+        ref={inputRef}
+        className="input-value"
+        id={props.inputId}
+        type={props.inputType || "text"}
+        placeholder={props.placeholder || ""}
+        onChange={props.onChange || handleChange}
+        value={props.value || ""}
+      />
+    </div>
   ) : (
     <></>
   );

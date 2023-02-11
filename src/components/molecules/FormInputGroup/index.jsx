@@ -26,6 +26,7 @@ export const inputGroupEnum = inputTypes;
  * @property {InputTypeEnum} [inputType] - input's type
  * @property {(e:ChangeEventObj) => void} [onChange] - on change input
  * @property {string} [textExample] - input's placeholder
+ * @property {string} [messageError] - message error
  */
 
 /**
@@ -50,6 +51,7 @@ const FormInputGroup = (props) => {
           onChange={props.onChange}
           value={props.value}
           inputType={props.inputType}
+          messageError={props.messageError}
         />
       </div>
     </>

@@ -1,7 +1,31 @@
+.form-input-component {
+  position: relative;
+}
+
+.message-error {
+  position: absolute;
+  top: -1.2rem;
+  right: 0;
+  color: var(--color-primary-strawberry);
+  font-size: 0.8rem;
+}
+
+.message-error + .input-value[type="text"],
+.message-error + .input-value[type="text"]:focus,
+.message-error + .input-value[type="text"]:focus-visible,
+.message-error + .input-value[type="email"],
+.message-error + .input-value[type="email"]:focus,
+.message-error + .input-value[type="email"]:focus-visible {
+  border-color: var(--color-primary-strawberry);
+}
+
 .input-value {
   padding: 0.7rem 0.6rem;
   border-radius: 5px;
   border: 1px solid var(--color-neutral-light-gray);
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .input-value::placeholder {
