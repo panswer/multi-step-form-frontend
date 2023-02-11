@@ -1,0 +1,9 @@
+.form-select-text {
+  color: var(--color-neutral-cool-gray);
+  text-transform: capitalize;
+  font-weight: var(--font-weight-3);
+}
+
+.form-select-text.active {
+  color: var(--color-primary-marine-blue);
+}

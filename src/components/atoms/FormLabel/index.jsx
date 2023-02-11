@@ -1,9 +1,11 @@
+import React from "react";
 import "./style.css";
 
 /**
  * @typedef {object} FormLabelProps
  * @property {string} label - text label
  * @property {string} id - id of input
+ * @property {React.CSSProperties} style - label style
  */
 
 /**
@@ -15,7 +17,7 @@ import "./style.css";
  */
 const FormLabel = (props) => {
   return (
-    <label className="text-form-label" htmlFor={props.id}>
+    <label className="text-form-label" htmlFor={props.id} style={props.style}>
       {props.label}
     </label>
   );

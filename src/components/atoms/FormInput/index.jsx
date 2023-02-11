@@ -3,8 +3,17 @@ import React from "react";
 import "./style.css";
 
 /**
+ * @typedef {"text"|"email"} InputTypeEnum
+ */
+
+/**
+ * @type {Array<InputTypeEnum>}
+ */
+export const inputTypes = ["email", "text"];
+
+/**
  * @typedef {object} FormInputProps
- * @property {string} [inputType] - input's type
+ * @property {InputTypeEnum} [inputType] - input's type
  * @property {string} [placeholder] - input's text example
  * @property {(e:React.ChangeEvent<HTMLInputElement>)=>void} [onChange] - on change
  * @property {string} inputId - input's id
@@ -36,7 +45,7 @@ const FormInput = (props) => {
     );
   };
 
-  return (
+  return inputTypes.includes(props.inputType) ? (
     <input
       className="input-value"
       id={props.inputId}
@@ -45,6 +54,8 @@ const FormInput = (props) => {
       onChange={props.onChange || handleChange}
       value={props.value || ""}
     />
+  ) : (
+    <></>
   );
 };
 

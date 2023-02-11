@@ -1,8 +1,11 @@
 .content-button-bottom {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   height: 10vh;
   width: 90vw;
   margin: 0 auto;
+}
+
+.content-button-bottom > .blank-space {
+  flex: auto;
 }

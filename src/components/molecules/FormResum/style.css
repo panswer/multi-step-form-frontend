@@ -1,0 +1,33 @@
+.content-form_step {
+  /* padding-bottom: 0.5rem; */
+}
+
+.invoice-details {
+  background-color: var(--color-neutral-magnolia);
+  border-radius: 5px;
+  padding: 1.5rem 1rem;
+}
+
+.invoice-details .plan-type {
+  display: grid;
+  grid-template-areas: "plan price" "button price";
+}
+
+.invoice-details .plus-servive .plus:first-child {
+  border-top: 1px solid var(--color-neutral-light-gray);
+  margin-top: 0.5rem;
+}
+
+.invoice-details .plus-servive .plus {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+}
+
+.resurm-component .invoice-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1.5rem 1rem 0;
+}

@@ -1,0 +1,6 @@
+.secundary-button {
+  border: none;
+  background-color: transparent;
+  color: var(--color-neutral-cool-gray);
+  text-transform: capitalize;
+}

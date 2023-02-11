@@ -20,6 +20,9 @@
   --color-neutral-magnolia: hsl(217, 100%, 97%);
   --color-neutral-alabaster: hsl(231, 100%, 99%);
   --color-neutral-white: hsl(0, 0%, 100%);
+  /* 
+    Letters
+  */
   /* typography */
   --font-size-generic: 16px;
   /* wieghts */

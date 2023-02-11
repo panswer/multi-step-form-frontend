@@ -1,18 +1,21 @@
 .content {
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   position: relative;
 }
 .content > .bg-content {
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   z-index: 100;
 }
 
 .content > .bg-content > .bg-img {
   width: 100vw;
-  height: 26vh;
+  height: 26%;
+  min-height: 26vh;
   background-image: url("../../../imgs/bg-sidebar-mobile.svg");
   background-position: center;
   background-size: cover;
@@ -20,7 +23,8 @@
 
 .content > .bg-content > .bg-color {
   width: 100vw;
-  height: 64vh;
+  height: 64%;
+  min-height: 64vh;
   background-color: var(--color-neutral-magnolia);
 }
 
@@ -28,7 +32,8 @@
   z-index: 200;
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

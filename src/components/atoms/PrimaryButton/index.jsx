@@ -8,6 +8,7 @@ import "./style.css";
  * @typedef {object} PrimaryButtonProps
  * @property {string} textButton - button's text
  * @property {(e: ClickEvent)=>void} onClick - handler click
+ * @property {React.CSSProperties} [style]
  */
 
 /**
@@ -34,9 +35,8 @@ const PrimaryButton = (props) => {
   return (
     <button
       className="btn-primary"
-      onClick={(e) => {
-        console.log("=".repeat(50));
-      }}
+      onClick={props.onClick || handleSubmit}
+      style={props.style}
     >
       {props.textButton}
     </button>

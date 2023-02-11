@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 import "./style.css";
 
@@ -8,8 +8,17 @@ import FormStep from "../../organisms/formStep";
 import PageNavbar from "../../molecules/PageNavbar";
 import ButtonBottom from "../../molecules/ButtonBottom";
 
+import {
+  handleUpdateOption,
+  handleFindInput,
+  handleGetFormStatus,
+  handleChangePage,
+  handleSendInvoice,
+} from "../../../utils/selectUtils";
+
 /**
  * @typedef {import('../../atoms/FormInput/index').ChangeEventObj} ChangeEventObj
+ * @typedef {import('../../../contexts/form-context').FormContextType} FormContextType
  */
 
 /**
@@ -19,6 +28,7 @@ import ButtonBottom from "../../molecules/ButtonBottom";
  */
 const Main = () => {
   const [state, setState] = useState(defaultValue);
+  const [contextState, setContextState] = useState(defaultValue);
 
   /**
    * Verify if the step is the last item
@@ -28,15 +38,28 @@ const Main = () => {
   const isLastPage = () => state.step === state.pages.length - 1;
 
   /**
+   * Verify if the step is the first item
+   *
+   * @returns {() => boolean}
+   */
+  const isFirstPage = () => state.step === 0;
+
+  /**
    * Verify if the step has all of data
    *
    * @returns {boolean}
    */
   const isFormPageCompleted = () => {
-    const result = state.pages[state.step].inputs.filter(
-      (inputItem) => !Boolean(inputItem.value)
-    );
+    const result = state.pages[state.step].inputs.filter((inputItem) => {
+      let result = !Boolean(inputItem.value);
 
+      if (result && inputItem.values instanceof Array) {
+        result = false;
+      }
+
+      return result;
+    });
+    console.log(result);
     return result.length === 0;
   };
 
@@ -46,7 +69,6 @@ const Main = () => {
    * @returns {void}
    */
   const nextPage = () => {
-    console.log("#".repeat(50));
     if (!isLastPage() && isFormPageCompleted()) {
       setState({
         ...state,
@@ -55,63 +77,53 @@ const Main = () => {
     }
   };
 
-  /**
-   * Change value on input
-   *
-   * @param {ChangeEventObj} e - event
-   *
-   * @returns {void}
-   */
-  const handleChange = (e) => {
+  useMemo(() => {
     /**
-     * @type {import('../../../contexts/form-context').FormContextType}
+     * @type {FormContextType}
      */
-    const newState = {
+    const newContextState = {
       ...state,
-      pages: state.pages.map((page, i) => {
-        if (i === state.step) {
-          return {
-            ...page,
-            inputs: page.inputs.map((inputItem) => {
-              if (inputItem.id === e.target.id) {
-                return {
-                  ...inputItem,
-                  value: e.target.value,
-                };
-              } else {
-                return inputItem;
-              }
-            }),
-          };
-        } else {
-          return page;
-        }
-      }),
+      isLastPage,
+      isFirstPage,
+      nextPage,
+      handleChange: handleUpdateOption(state, setState),
+      getInputValue: handleFindInput(state),
+      getInvoice: handleGetFormStatus(state),
+      selectPage: handleChangePage(state, setState),
+      sendInvoice: handleSendInvoice(state, setState),
     };
 
-    setState(newState);
-  };
+    setContextState(newContextState);
+  }, [state, setState]);
 
   return (
     <>
-      <formContext.Provider
-        value={{
-          ...state,
-          isLastPage,
-          nextPage,
-          handleChange,
-        }}
-      >
+      <formContext.Provider value={contextState}>
         <div className="content">
           <div className="bg-content">
             <div className="bg-img"></div>
-            <div className="bg-color"></div>
+            <div
+              className="bg-color"
+              style={
+                state.invoice.isSaved
+                  ? {
+                      minHeight: "74vh",
+                    }
+                  : undefined
+              }
+            ></div>
           </div>
           <div className="form-content">
             <PageNavbar />
             <FormStep />
             <div className="white-space"></div>
-            <ButtonBottom />
+            {state.invoice.isSaved ? (
+              <></>
+            ) : (
+              <>
+                <ButtonBottom />
+              </>
+            )}
           </div>
         </div>
       </formContext.Provider>

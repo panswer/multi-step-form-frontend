@@ -1,0 +1,36 @@
+.select-radio {
+  display: none;
+}
+
+.content-form_select_group {
+  display: grid;
+  grid-template-areas: "icon title" "icon subTitle" "blank plus";
+  grid-template-columns: 4rem auto;
+  grid-template-rows: 1.5rem 1.5rem;
+  border: 1px solid var(--color-neutral-light-gray);
+  border-radius: 10px;
+  padding: 0.7rem 0.5rem;
+}
+
+.select-radio:checked + label > .content-form_select_group {
+  border-color: var(--color-primary-purplish-blue);
+  background-color: var(--color-neutral-magnolia);
+}
+
+.content-form_select_group > .circle {
+  grid-area: icon;
+  justify-self: center;
+  align-self: center;
+}
+
+.content-form_select_group > .title {
+  grid-area: title;
+}
+
+.content-form_select_group > .price {
+  grid-area: subTitle;
+}
+
+.content-form_select_group > .plus {
+  grid-area: plus;
+}

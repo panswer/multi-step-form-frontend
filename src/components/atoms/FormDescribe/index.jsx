@@ -1,8 +1,10 @@
+import React from "react";
 import "./style.css";
 
 /**
  * @typedef {object} FormDescribeProps
  * @property {string} description - text description
+ * @property {React.CSSProperties} [style] - styles
  */
 
 /**
@@ -13,7 +15,11 @@ import "./style.css";
  * @returns {JSX.Element}
  */
 const FormDescribe = (props) => {
-  return <span className="form-text-description">{props.description}</span>;
+  return (
+    <span className="form-text-description" style={props.style}>
+      {props.description}
+    </span>
+  );
 };
 
 export default FormDescribe;
